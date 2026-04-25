@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/", "destination": "/public/home.html" },
+    { "source": "/predict", "destination": "/public/predict.html" },
+    { "source": "/dashboard", "destination": "/public/dashboard.html" },
+    { "source": "/report", "destination": "/public/report.html" },
+    { "source": "/about", "destination": "/public/about.html" },
+    { "source": "/contact", "destination": "/public/contact.html" },
+    { "source": "/static/(.*)", "destination": "/public/static/$1" }
+  ]
+}
