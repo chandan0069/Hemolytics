@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HemoLytics | Medical Report</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/global-effects.css">
+
+
+    <style>
+        .report-container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .report-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .report-card h2 {
+            color: #0ea5e9;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .report-card p, .report-card ul {
+            color: #475569;
+        }
+        .popup-bg {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+        .popup-box {
+            background: #ffffff;
+            padding: 30px;
+            width: 380px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            color: #0f172a;
+            text-align: center;
+        }
+        .popup-box h2 {
+            margin-bottom: 20px;
+            color: #0ea5e9;
+        }
+        .popup-box input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .popup-box input:focus {
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+        .popup-box button {
+            width: 100%;
+            padding: 12px;
+            background: #0ea5e9;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .popup-box button:hover {
+            background: #0284c7;
+        }
+        #langSelect {
+            background: #f8fafc;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            border-radius: 8px;
+            outline: none;
+        }
+        #langSelect option {
+            background: #ffffff;
+            color: #334155;
+        }
+        .report-card button {
+            padding: 10px 20px;
+            background: #0ea5e9;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 10px;
+            transition: 0.3s;
+        }
+        .report-card button:hover {
+            background: #0284c7;
+        }
+        .report-container h1 {
+            color: #0f172a;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="report-body">
+
+<!-- ================= USER INFO POPUP ================= -->
+<div id="userPopup" class="popup-bg">
+    <div class="popup-box">
+        <h2><i class="fa-solid fa-hospital-user"></i> Patient Details</h2>
+        <input id="uName" placeholder="Full Name">
+        <input id="uAge" placeholder="Age">
+        <input id="uGender" placeholder="Gender">
+        <button onclick="saveUser()">Generate Report</button>
+    </div>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-droplet"></i> HemoLytics Medical Report</div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/predict">Prediction</a>
+        <a href="/dashboard" id="nav-dashboard" class="hidden-nav">Dashboard</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
+</nav>
+
+<section class="report-container">
+
+    <h1><i class="fa-solid fa-file-medical"></i> Blood Disease Medical Report</h1>
+
+    <div class="report-card">
+        <h2>Patient Information</h2>
+        <p><b>Name:</b> <span id="pName"></span></p>
+        <p><b>Age:</b> <span id="pAge"></span></p>
+        <p><b>Gender:</b> <span id="pGender"></span></p>
+    </div>
+
+    <div class="report-card">
+        <h2>Predicted Disease</h2>
+        <p id="diseaseName"></p>
+        <p id="diseaseIntro"></p>
+    </div>
+
+    <div class="report-card">
+        <h2>Clinical Parameters</h2>
+        <ul id="parameterList"></ul>
+    </div>
+
+    <div class="report-card">
+        <h2>Medical Recommendations</h2>
+        <p id="medicalReco"></p>
+    </div>
+
+    <div class="report-card">
+        <h2>Diet Chart</h2>
+        <p id="dietChart"></p>
+    </div>
+
+    <div class="report-card">
+        <h2>AI Doctor</h2>
+        <select id="langSelect">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+        </select>
+        <button onclick="speakReport()"><i class="fa-solid fa-volume-high"></i> Speak</button>
+        <button onclick="downloadPDF()"><i class="fa-solid fa-file-pdf"></i> Download PDF</button>
+    </div>
+
+</section>
+
+<script src="https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="/static/js/report.js"></script>
+<script src="/static/js/global-effects.js"></script>
+
+
+<script>
+    if(localStorage.getItem("reportData")) {
+        let d = document.getElementById("nav-dashboard");
+        let r = document.getElementById("nav-report");
+        if(d) d.classList.remove("hidden-nav");
+        if(r) r.classList.remove("hidden-nav");
+    }
+</script>
+
+</body>
+</html>

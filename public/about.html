@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About | HemoLytics</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .about-hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 50px;
+            background: linear-gradient(to bottom, #ffffff, #f8fafc);
+            gap: 40px;
+        }
+        .about-hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+        .about-hero-text h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #0f172a;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .about-hero-text h1 span {
+            color: #0ea5e9;
+        }
+        .about-hero-text p {
+            font-size: 1.15rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .about-hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .about-hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(14, 165, 233, 0.15);
+        }
+        
+        .vision-section {
+            padding: 80px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .vision-section h2 {
+            font-size: 2.2rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+        .vision-section p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #475569;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 40px 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: 0.3s ease;
+        }
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.1);
+            border-color: #bae6fd;
+        }
+        .metric-card i {
+            font-size: 2.5rem;
+            color: #0ea5e9;
+            margin-bottom: 15px;
+        }
+        .metric-card h3 {
+            color: #0f172a;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .metric-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 900px) {
+            .about-hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 20px;
+            }
+            .vision-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-droplet"></i> HemoLytics</div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/predict">Prediction</a>
+        <a href="/dashboard" id="nav-dashboard" class="hidden-nav">Dashboard</a>
+        <a href="/report" id="nav-report" class="hidden-nav">Report</a>
+        <a href="/contact">Contact</a>
+    </div>
+</nav>
+
+<section class="about-hero">
+    <div class="about-hero-text">
+        <h1>Exploring Innovations in <br><span>Machine Learning.</span></h1>
+        <p>
+            HemoLytics is an independent research initiative designed to explore how machine learning 
+            algorithms can assist in analyzing blood-related data. It serves as an educational 
+            demonstration of AI capabilities in healthcare data modeling, built to identify 
+            patterns with speed and precision.
+        </p>
+        <div style="padding: 15px; background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 8px; margin-bottom: 25px;">
+            <p style="margin: 0; font-size: 0.95rem; color: #b45309;"><i class="fa-solid fa-triangle-exclamation"></i> <strong>Disclaimer:</strong> This is a research prototype. It is not a certified clinical tool and must not be used for actual medical diagnosis.</p>
+        </div>
+        <a href="/predict" class="btn-primary">Try the Prediction Model</a>
+    </div>
+    <div class="about-hero-image">
+        <img src="/static/images/about_hero.png" alt="Medical AI Brain">
+    </div>
+</section>
+
+<section class="vision-section">
+    <h2><i class="fa-solid fa-bullseye" style="color:#0ea5e9;"></i> Goals & Vision</h2>
+    <p>
+        The goal of this initiative is to bridge the gap between computer science and medical data. 
+        By processing 24 distinct blood parameters, HemoLytics demonstrates how predictive modeling 
+        can act as a supportive tool. It highlights the potential of AI as an "invisible assistant" 
+        for future healthcare innovations.
+    </p>
+</section>
+
+<div class="metrics-grid">
+    <div class="metric-card">
+        <i class="fa-solid fa-microscope"></i>
+        <h3>Deep Analysis</h3>
+        <p>Evaluates 24 distinct clinical blood indicators in real-time.</p>
+    </div>
+    <div class="metric-card">
+        <i class="fa-solid fa-network-wired"></i>
+        <h3>Neural Processing</h3>
+        <p>Trained on thousands of verified medical records and outcomes.</p>
+    </div>
+    <div class="metric-card">
+        <i class="fa-solid fa-file-pdf"></i>
+        <h3>Clinical Reports</h3>
+        <p>Instantly generates standardized, printable PDF diagnostic briefs.</p>
+    </div>
+    <div class="metric-card">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>Data Privacy</h3>
+        <p>Client-side rendering ensures patient parameters stay secure.</p>
+    </div>
+</div>
+
+<div class="footer">
+    HemoLytics © AI-Based Medical Intelligence Platform
+</div>
+
+<script>
+    if(localStorage.getItem("reportData")) {
+        let d = document.getElementById("nav-dashboard");
+        let r = document.getElementById("nav-report");
+        if(d) d.classList.remove("hidden-nav");
+        if(r) r.classList.remove("hidden-nav");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "hemolytics-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for HemoLytics Blood Prediction",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.1"
+  }
+}

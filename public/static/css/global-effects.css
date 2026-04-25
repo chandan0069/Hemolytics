@@ -1,0 +1,17 @@
+/* ===== FADE ON SCROLL ===== */
+.section,
+.card,
+.stat,
+.flow-step{
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.8s ease;
+}
+
+.section.show,
+.card.show,
+.stat.show,
+.flow-step.show{
+    opacity:1;
+    transform:translateY(0);
+}

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Blood Prediction</title>
+<link rel="stylesheet" href="/static/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/global-effects.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="logo"><i class="fa-solid fa-droplet"></i> HemoLytics Prediction</div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/dashboard" id="nav-dashboard" class="hidden-nav">Dashboard</a>
+    <a href="/report" id="nav-report" class="hidden-nav">Report</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>
+
+<section class="predict-hero">
+  <h1>Blood Disease Prediction</h1>
+  <p>Enter patient medical parameters carefully or use Demo mode</p>
+</section>
+
+<form id="predictForm" class="medical-form">
+
+<!-- ================= CARD 1 ================= -->
+<div class="medical-card">
+<h2><i class="fa-solid fa-droplet"></i> Basic Blood Parameters</h2>
+
+<div class="input-box">
+<label>Glucose</label>
+<input name="Glucose" placeholder="e.g. 0.45">
+<small>Blood sugar level</small>
+</div>
+
+<div class="input-box">
+<label>Cholesterol</label>
+<input name="Cholesterol" placeholder="e.g. 0.40">
+<small>Total cholesterol level</small>
+</div>
+
+<div class="input-box">
+<label>Hemoglobin</label>
+<input name="Hemoglobin" placeholder="e.g. 0.55">
+<small>Oxygen carrying protein</small>
+</div>
+
+<div class="input-box">
+<label>Platelets</label>
+<input name="Platelets" placeholder="e.g. 0.60">
+<small>Blood clotting cells</small>
+</div>
+
+<div class="input-box">
+<label>White Blood Cells</label>
+<input name="White Blood Cells" placeholder="e.g. 0.50">
+<small>Immune response indicator</small>
+</div>
+
+<div class="input-box">
+<label>Red Blood Cells</label>
+<input name="Red Blood Cells" placeholder="e.g. 0.52">
+<small>Red cell count</small>
+</div>
+
+<div class="input-box">
+<label>Hematocrit</label>
+<input name="Hematocrit" placeholder="e.g. 0.48">
+<small>RBC volume percentage</small>
+</div>
+</div>
+
+<!-- ================= CARD 2 ================= -->
+<div class="medical-card">
+<h2><i class="fa-solid fa-dna"></i> RBC Indices</h2>
+
+<div class="input-box">
+<label>MCV</label>
+<input name="Mean Corpuscular Volume" placeholder="e.g. 0.50">
+<small>Average RBC size</small>
+</div>
+
+<div class="input-box">
+<label>MCH</label>
+<input name="Mean Corpuscular Hemoglobin" placeholder="e.g. 0.48">
+<small>Hemoglobin per RBC</small>
+</div>
+
+<div class="input-box">
+<label>MCHC</label>
+<input name="Mean Corpuscular Hemoglobin Concentration" placeholder="e.g. 0.52">
+<small>Hemoglobin concentration</small>
+</div>
+</div>
+
+<!-- ================= CARD 3 ================= -->
+<div class="medical-card">
+<h2><i class="fa-solid fa-cubes-stacked"></i> Metabolic & Diabetes</h2>
+
+<div class="input-box">
+<label>Insulin</label>
+<input name="Insulin" placeholder="e.g. 0.60">
+<small>Insulin hormone level</small>
+</div>
+
+<div class="input-box">
+<label>BMI</label>
+<input name="BMI" placeholder="e.g. 0.55">
+<small>Body Mass Index</small>
+</div>
+
+<div class="input-box">
+<label>HbA1c</label>
+<input name="HbA1c" placeholder="e.g. 0.58">
+<small>3-month sugar average</small>
+</div>
+</div>
+
+<!-- ================= CARD 4 ================= -->
+<div class="medical-card">
+<h2><i class="fa-solid fa-heart-pulse"></i> Blood Pressure & Heart</h2>
+
+<div class="input-box">
+<label>Systolic BP</label>
+<input name="Systolic Blood Pressure" placeholder="e.g. 0.60">
+<small>Upper BP value</small>
+</div>
+
+<div class="input-box">
+<label>Diastolic BP</label>
+<input name="Diastolic Blood Pressure" placeholder="e.g. 0.55">
+<small>Lower BP value</small>
+</div>
+
+<div class="input-box">
+<label>Heart Rate</label>
+<input name="Heart Rate" placeholder="e.g. 0.65">
+<small>Beats per minute</small>
+</div>
+
+<div class="input-box">
+<label>Troponin</label>
+<input name="Troponin" placeholder="e.g. 0.30">
+<small>Heart muscle damage marker</small>
+</div>
+</div>
+
+<!-- ================= CARD 5 ================= -->
+<div class="medical-card">
+<h2><i class="fa-solid fa-flask-vial"></i> Lipid, Liver & Kidney</h2>
+
+<div class="input-box">
+<label>Triglycerides</label>
+<input name="Triglycerides" placeholder="e.g. 0.50">
+<small>Blood fat level</small>
+</div>
+
+<div class="input-box">
+<label>LDL Cholesterol</label>
+<input name="LDL Cholesterol" placeholder="e.g. 0.52">
+<small>Bad cholesterol</small>
+</div>
+
+<div class="input-box">
+<label>HDL Cholesterol</label>
+<input name="HDL Cholesterol" placeholder="e.g. 0.48">
+<small>Good cholesterol</small>
+</div>
+
+<div class="input-box">
+<label>ALT</label>
+<input name="ALT" placeholder="e.g. 0.45">
+<small>Liver enzyme</small>
+</div>
+
+<div class="input-box">
+<label>AST</label>
+<input name="AST" placeholder="e.g. 0.47">
+<small>Liver enzyme</small>
+</div>
+
+<div class="input-box">
+<label>Creatinine</label>
+<input name="Creatinine" placeholder="e.g. 0.50">
+<small>Kidney function marker</small>
+</div>
+
+<div class="input-box">
+<label>C-reactive Protein</label>
+<input name="C-reactive Protein" placeholder="e.g. 0.40">
+<small>Inflammation marker</small>
+</div>
+</div>
+
+<!-- ================= ACTION BAR ================= -->
+<div class="action-bar">
+<button type="button" class="btn-demo" onclick="fillDemo()"><i class="fa-solid fa-dice"></i> Demo</button>
+<button type="button" class="btn-clear" onclick="clearForm()"><i class="fa-solid fa-broom"></i> Clear</button>
+<button type="submit" class="btn-predict">Predict Disease</button>
+</div>
+
+</form>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content medical-reveal">
+
+    <span class="close" onclick="closePopup()">&times;</span>
+
+    <!-- SCAN EFFECT -->
+    <div class="scan-ring"></div>
+
+    <!-- IMAGE CONTAINER -->
+    <div class="image-frame">
+        <img id="diseaseImage" class="disease-img">
+    </div>
+
+    <!-- RESULT -->
+    <h2 id="result" class="result-text"></h2>
+    <p class="result-sub">AI Based Blood Analysis Result</p>
+
+  </div>
+</div>
+
+<script src="/static/js/script.js"></script>
+<script src="/static/js/global-effects.js"></script>
+
+
+<script>
+    if(localStorage.getItem("reportData")) {
+        let d = document.getElementById("nav-dashboard");
+        let r = document.getElementById("nav-report");
+        if(d) d.classList.remove("hidden-nav");
+        if(r) r.classList.remove("hidden-nav");
+    }
+</script>
+
+</body>
+</html>

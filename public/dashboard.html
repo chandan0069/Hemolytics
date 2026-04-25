@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics Dashboard | HemoLytics</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/global-effects.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-droplet"></i> HemoLytics Analytics</div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/predict">Prediction</a>
+        <a href="/report" id="nav-report" class="hidden-nav">Report</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
+</nav>
+
+<section class="predict-hero">
+    <h1>Clinical Data Analysis Dashboard</h1>
+    <p>Doctor-oriented analytical view of patient blood parameters</p>
+</section>
+
+<!-- ===== PREDICTION ===== -->
+<div class="medical-card center">
+    <h2><i class="fa-solid fa-dna"></i> Predicted Disease</h2>
+    <h1 class="blood-text" id="dash-prediction">Loading...</h1>
+</div>
+
+<!-- ===== ANALYTICS GRID (SAME SIZE GRAPHS) ===== -->
+<div class="analytics-grid">
+    <div class="chart-card"><h3>Blood Count Analysis</h3><canvas id="bloodChart"></canvas></div>
+    <div class="chart-card"><h3>RBC Indices Analysis</h3><canvas id="rbcChart"></canvas></div>
+    <div class="chart-card"><h3>Metabolic & Diabetes</h3><canvas id="metabolicChart"></canvas></div>
+    <div class="chart-card"><h3>Cardiac Risk Profile</h3><canvas id="cardiacChart"></canvas></div>
+    <div class="chart-card"><h3>Lipid & Liver Profile</h3><canvas id="lipidChart"></canvas></div>
+    <div class="chart-card"><h3>Kidney & Inflammation</h3><canvas id="kidneyChart"></canvas></div>
+</div>
+
+<!-- ===== CATEGORY-WISE PARAMETERS ===== -->
+<div class="medical-card">
+    <h2><i class="fa-solid fa-flask-vial"></i> Category-wise Patient Parameters</h2>
+
+    <div class="param-category">
+        <h4><i class="fa-solid fa-droplet"></i> Blood Count</h4>
+        <p>Hemoglobin: <span id="param-Hemoglobin">-</span> | Platelets: <span id="param-Platelets">-</span> | WBC: <span id="param-White Blood Cells">-</span></p>
+    </div>
+
+    <div class="param-category">
+        <h4><i class="fa-solid fa-dna"></i> RBC Indices</h4>
+        <p>RBC: <span id="param-Red Blood Cells">-</span> | HCT: <span id="param-Hematocrit">-</span> | MCV: <span id="param-Mean Corpuscular Volume">-</span></p>
+    </div>
+
+    <div class="param-category">
+        <h4><i class="fa-solid fa-cubes-stacked"></i> Metabolic</h4>
+        <p>Glucose: <span id="param-Glucose">-</span> | HbA1c: <span id="param-HbA1c">-</span> | BMI: <span id="param-BMI">-</span></p>
+    </div>
+
+    <div class="param-category">
+        <h4><i class="fa-solid fa-heart-pulse"></i> Cardiac</h4>
+        <p>Heart Rate: <span id="param-Heart Rate">-</span> | Troponin: <span id="param-Troponin">-</span></p>
+    </div>
+
+    <div class="param-category">
+        <h4><i class="fa-solid fa-flask-vial"></i> Lipid & Liver</h4>
+        <p>Cholesterol: <span id="param-Cholesterol">-</span> | LDL: <span id="param-LDL Cholesterol">-</span> | ALT: <span id="param-ALT">-</span></p>
+    </div>
+
+    <div class="param-category">
+        <h4><i class="fa-solid fa-stethoscope"></i> Kidney & Inflammation</h4>
+        <p>Creatinine: <span id="param-Creatinine">-</span> | CRP: <span id="param-C-reactive Protein">-</span></p>
+    </div>
+</div>
+
+<script src="/static/js/dashboard.js"></script>
+<script src="/static/js/global-effects.js"></script>
+
+</body>
+</html>

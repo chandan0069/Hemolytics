@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Disease Prediction | Home</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/global-effects.css">
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-droplet"></i> HemoLytics</div>
+    <div class="nav-links">
+        <a href="/predict">Prediction</a>
+        <a href="/dashboard" id="nav-dashboard" class="hidden-nav">Dashboard</a>
+        <a href="/report" id="nav-report" class="hidden-nav">Report</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
+</nav>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>
+            AI Powered <span>Blood Disease</span><br>
+            Prediction System
+        </h1>
+        <p>
+            Predict critical blood-related diseases using advanced
+            Machine Learning models with high accuracy and reliability.
+        </p>
+
+        <a href="/predict" class="btn-primary">Start Prediction</a>
+    </div>
+
+    <div class="hero-image">
+        <img src="/static/images/hero.png">
+    </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="features">
+    <h2>Why Choose Our System?</h2>
+
+    <div class="feature-cards">
+        <div class="card">
+            <h3><i class="fa-solid fa-dna"></i> AI Driven</h3>
+            <p>Uses Random Forest Machine Learning algorithm for accurate diagnosis.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fa-solid fa-stethoscope"></i> Medical Focused</h3>
+            <p>Designed specifically for blood-related disease prediction.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fa-solid fa-bolt"></i> Fast Results</h3>
+            <p>Instant prediction with minimal input data.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fa-solid fa-chart-column"></i> Dashboard</h3>
+            <p>Visualize disease statistics and model performance.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+    HemoLytics © AI-Based Medical Intelligence Platform
+</div>
+<script src="/static/js/global-effects.js"></script>
+
+
+<script>
+    if(localStorage.getItem("reportData")) {
+        let d = document.getElementById("nav-dashboard");
+        let r = document.getElementById("nav-report");
+        if(d) d.classList.remove("hidden-nav");
+        if(r) r.classList.remove("hidden-nav");
+    }
+</script>
+
+</body>
+</html>
