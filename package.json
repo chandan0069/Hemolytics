@@ -4,7 +4,8 @@
   "description": "Frontend for HemoLytics Blood Prediction",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'No build required for this static frontend'"
   },
   "dependencies": {
     "express": "^4.22.1"
